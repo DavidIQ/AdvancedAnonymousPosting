@@ -1,0 +1,24 @@
+imports:
+    - { resource: parameters.yml }
+
+services:
+    davidiq.advancedguestposting.controller.acp:
+        class: davidiq\advancedguestposting\controller\acp_controller
+        arguments:
+            - '@config'
+            - '@language'
+            - '@log'
+            - '@request'
+            - '@template'
+            - '@user'
+
+    davidiq.advancedguestposting.service:
+        class: davidiq\advancedguestposting\service
+        arguments:
+            - '@user'
+            - '%davidiq.advancedguestposting.tables.advancedguestposting_table%'
+
+    davidiq.advancedguestposting.listener:
+        class: davidiq\advancedguestposting\event\main_listener
+        tags:
+            - { name: event.listener }

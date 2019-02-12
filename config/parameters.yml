@@ -1,0 +1,2 @@
+parameters:
+    davidiq.advancedguestposting.tables.advancedguestposting_table: '%core.table_prefix%davidiq_advancedguestposting_table'
