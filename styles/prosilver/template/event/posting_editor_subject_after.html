@@ -1,0 +1,5 @@
+{% if not S_PRIVMSGS and S_DISPLAY_USERNAME %}
+<p>
+	<label for="session_guest_tos"><input type="checkbox" name="session_guest_tos" id="session_guest_tos"{{ S_SESSION_GUEST_TOS_CHECKED }} /> {{ lang('SESSION_GUEST_TOS') }}</label>
+</p>
+{% endif %}

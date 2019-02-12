@@ -35,5 +35,5 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
-	'advancedguestposting_PAGE'			=> 'advancedguestposting Page',
+	'SESSION_GUEST_TOS'			=> 'By creating this guest post, you agree to the Terms and Conditions.',
 ));

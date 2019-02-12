@@ -1,8 +1,8 @@
 {
     "name": "davidiq/advancedguestposting",
     "type": "phpbb-extension",
-    "description": "Adds advanced features to anonymous posting",
-    "homepage": "https://github.com/DavidIQ/advanced-anonymous-posting",
+    "description": "Adds advanced features to guest posting",
+    "homepage": "https://github.com/DavidIQ/advanced-guest-posting",
     "version": "1.0.0-dev",
     "time": "2019-01-15",
     "license": "GPL-2.0-only",
@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "php": ">=5.4",
+        "php": ">=7.0",
         "composer/installers": "~1.0"
     },
     "extra": {
