@@ -1,8 +1,22 @@
 services:
+    davidiq.advancedguestposting.controller.acp:
+        class: davidiq\advancedguestposting\controller\acp_controller
+        arguments:
+            - '@config'
+            - '@language'
+            - '@log'
+            - '@request'
+            - '@template'
+            - '@user'
     davidiq.advancedguestposting.listener:
         class: davidiq\advancedguestposting\event\main_listener
         arguments:
             - '@request'
             - '@language'
+            - '@template'
+            - '@config'
+            - '@user'
+            - '%core.root_path%'
+            - '%core.php_ext%'
         tags:
             - { name: event.listener }

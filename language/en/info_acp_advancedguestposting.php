@@ -35,6 +35,14 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
-	'ADVANCEDGUESTPOSTING_TOS'			       => 'By creating this guest post, you agree to the <a href="%s" target="_blank">Terms and Conditions.</a>',
-   'ADVANCEDGUESTPOSTING_TOS_ACCEPT_ERROR' => 'You must agree to the Terms and Conditions to post as a guest.',
+	'ACP_ADVANCEDGUESTPOSTING_TITLE'	            => 'Advanced Guest Posting',
+	'ACP_ADVANCEDGUESTPOSTING'			            => 'Settings',
+
+   'ACP_ADVANCEDGUESTPOSTING_REG_POSTS'         => 'Post count for registration reminders',
+	'ACP_ADVANCEDGUESTPOSTING_REG_POSTS_EXPLAIN' => 'Number of posts after which to remind guest user to register. 0 disables the registration reminder.',
+	'ACP_ADVANCEDGUESTPOSTING_TOS_LINK'          => 'Terms of service URL',
+	'ACP_ADVANCEDGUESTPOSTING_TOS_LINK_EXPLAIN'  => 'Specify a full URL to a terms of service page to use in the terms of service acceptance checkbox text. Leave blank to use the default phpBB terms of service page.',
+
+	'ACP_ADVANCEDGUESTPOSTING_SETTINGS_SAVED'    => 'Advanced Guest Posting Settings saved.',
+	'LOG_ACP_ADVANCEDGUESTPOSTING_SETTINGS'		=> '<strong>Advanced Guest Posting settings updated</strong>',
 ));

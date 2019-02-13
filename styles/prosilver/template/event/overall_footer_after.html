@@ -1,0 +1,18 @@
+{% if not S_PRIVMSGS and S_DISPLAY_USERNAME %}
+<script type="text/javascript">
+   $(function() {
+      var $submit = $('input[name=post]');
+      $submit.prop('disabled', true);
+      $submit.addClass('disabled');
+      $('#advancedguestposting_tos_accept').change(function () {
+         if ($(this).is(":checked")) {
+            $submit.prop('disabled', false);
+            $submit.removeClass('disabled');
+         } else {
+            $submit.prop('disabled', true);
+            $submit.addClass('disabled');
+         }
+      });
+   });
+</script>
+{% endif %}

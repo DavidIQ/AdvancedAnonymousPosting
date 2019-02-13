@@ -19,7 +19,7 @@ class install_session_schema extends \phpbb\db\migration\migration
 
 	public static function depends_on()
 	{
-		return array('\phpbb\db\migration\data\v32x\v321');
+		return array('\phpbb\db\migration\data\v320\v320');
 	}
 
 	public function update_schema()
@@ -29,7 +29,6 @@ class install_session_schema extends \phpbb\db\migration\migration
 				$this->table_prefix . 'sessions'			=> [
                'session_username'      => ['VCHAR:255', ''],
 					'session_email'			=> ['VCHAR:100', ''],
-               'session_tos'           => ['BOOL', 0],
                'session_posts'         => ['INT:11', 0]
 				],
 			],
@@ -43,7 +42,6 @@ class install_session_schema extends \phpbb\db\migration\migration
 				$this->table_prefix . 'sessions'			=> [
                'session_username',
 					'session_email',
-               'session_tos',
                'session_posts'
 				],
 			],

@@ -85,14 +85,15 @@ class acp_controller
 			if (empty($errors))
 			{
 				// Set the options the user configured
-				$this->config->set('davidiq_advancedguestposting_goodbye', $this->request->variable('davidiq_advancedguestposting_goodbye', 0));
+				$this->config->set('davidiq_advancedguestposting_reg_posts', $this->request->variable('davidiq_advancedguestposting_reg_posts', 0));
+				$this->config->set('davidiq_advancedguestposting_tos_link', $this->request->variable('davidiq_advancedguestposting_tos_link', ''));
 
 				// Add option settings change action to the admin log
-				$this->log->add('admin', $this->user->data['user_id'], $this->user->ip, 'LOG_ACP_advancedguestposting_SETTINGS');
+				$this->log->add('admin', $this->user->data['user_id'], $this->user->ip, 'LOG_ACP_ADVANCEDGUESTPOSTING_SETTINGS');
 
 				// Option settings have been updated and logged
 				// Confirm this to the user and provide link back to previous page
-				trigger_error($this->language->lang('ACP_advancedguestposting_SETTING_SAVED') . adm_back_link($this->u_action));
+				trigger_error($this->language->lang('ACP_ADVANCEDGUESTPOSTING_SETTINGS_SAVED') . adm_back_link($this->u_action));
 			}
 		}
 
@@ -102,10 +103,10 @@ class acp_controller
 		$this->template->assign_vars(array(
 			'S_ERROR'		=> $s_errors,
 			'ERROR_MSG'		=> $s_errors ? implode('<br />', $errors) : '',
-
 			'U_ACTION'		=> $this->u_action,
 
-			'DAVIDIQ_advancedguestposting_GOODBYE'	=> (bool) $this->config['davidiq_advancedguestposting_goodbye'],
+			'DAVIDIQ_ADVANCEDGUESTPOSTING_REG_POSTS'	=> (int) $this->config['davidiq_advancedguestposting_reg_posts'],
+         'DAVIDIQ_ADVANCEDGUESTPOSTING_TOS_LINK'	=> $this->config['davidiq_advancedguestposting_tos_link'],
 		));
 	}
 

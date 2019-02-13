@@ -1,0 +1,34 @@
+{% include 'overall_header.html' %}
+
+<h1>{{ lang('ACP_ADVANCEDGUESTPOSTING_TITLE') }}</h1>
+
+{% if S_ERROR %}
+	<div class="errorbox">
+		<h3>{{ lang('WARNING') }}</h3>
+		<p>{{ ERROR_MSG }}</p>
+	</div>
+{% endif %}
+
+<form id="davidiq_advancedguestposting_acp" name="davidiq_advancedguestposting_acp" method="post" action="{{ U_ACTION }}">
+
+	<fieldset>
+		<legend>{{ lang('SETTINGS') }}</legend>
+		<dl>
+			<dt><label for="davidiq_advancedguestposting_reg_posts">{{ lang('ACP_ADVANCEDGUESTPOSTING_REG_POSTS') ~ lang('COLON') }}</label><br /><span>{{ lang('ACP_ADVANCEDGUESTPOSTING_REG_POSTS_EXPLAIN') }}</span></dt>
+			<dd><input type="number" min="0" id="davidiq_advancedguestposting_reg_posts" name="davidiq_advancedguestposting_reg_posts" value="{{ DAVIDIQ_ADVANCEDGUESTPOSTING_REG_POSTS }}" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="davidiq_advancedguestposting_tos_link">{{ lang('ACP_ADVANCEDGUESTPOSTING_TOS_LINK') ~ lang('COLON') }}</label><br /><span>{{ lang('ACP_ADVANCEDGUESTPOSTING_TOS_LINK_EXPLAIN') }}</span></dt>
+			<dd><input type="text" size="60" id="davidiq_advancedguestposting_tos_link" name="davidiq_advancedguestposting_tos_link" value="{{ DAVIDIQ_ADVANCEDGUESTPOSTING_TOS_LINK }}" /></dd>
+		</dl>
+	</fieldset>
+
+	<fieldset class="submit-buttons">
+		<input class="button1" type="submit" id="submit" name="submit" value="{{ lang('SUBMIT') }}" />&nbsp;
+		<input class="button2" type="submit" id="preview" name="preview" value="{{ lang('PREVIEW') }}" />
+		{{ S_FORM_TOKEN }}
+	</fieldset>
+
+</form>
+
+{% include 'overall_footer.html' %}
