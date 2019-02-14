@@ -37,4 +37,5 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
 	'ADVANCEDGUESTPOSTING_TOS'			       => 'By creating this guest post, you agree to the <a href="%s" target="_blank">Terms and Conditions.</a>',
    'ADVANCEDGUESTPOSTING_TOS_ACCEPT_ERROR' => 'You must agree to the Terms and Conditions to post as a guest.',
+   'ADVANCEDGUESTPOSTING_REGISTER_NAG'     => 'Thank you for participating in our forums. As a registered user you can benefit from many features that will make using our forums much easier. Would you like to register?'
 ));
