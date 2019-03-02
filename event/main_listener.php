@@ -55,7 +55,8 @@ class main_listener implements EventSubscriberInterface
          'core.posting_modify_submission_errors' => 'verify_tos_acceptance',
          'core.posting_modify_submit_post_after' => 'save_guest_info',
          'core.posting_modify_post_data'         => 'registration_nag',
-         'core.modify_posting_parameters'        => 'registration_nag_confirm'
+         'core.modify_posting_parameters'        => 'registration_nag_confirm',
+         'core.ucp_register_data_before'         => 'add_registration_data'
 		];
 	}
 
@@ -200,5 +201,23 @@ class main_listener implements EventSubscriberInterface
       {
          redirect("{$this->root_path}{$advancedguestposting_confirm_page}");
       }
+   }
+
+   /**
+	 * Adds session data to registration form
+	 *
+	 * @param \phpbb\event\data	$event	Event object
+	 */
+   public function add_registration_data($event)
+   {
+      $data = $event['data'];
+
+      $username = $data['username'];
+      $email = $data['email'];
+
+      $data['username'] = empty($username) ? $this->user->data['session_username'] : $username;
+      $data['email'] = empty($email) ? $this->user->data['session_email'] : $email;
+
+      $event['data'] = $data;
    }
 }
