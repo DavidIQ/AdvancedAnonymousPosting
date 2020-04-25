@@ -102,10 +102,10 @@ class main_listener implements EventSubscriberInterface
       $page_data['USERNAME'] = $this->request->variable('username', $this->user->data['session_username']);
       $event['page_data'] = $page_data;
 
+      $email_var = $this->config['allow_sfs'] ? 'email' : 'session_email';
+
       $this->template->assign_vars([
-         //'S_ERROR'		=> $s_errors,
-         //'ERROR_MSG'		=> $s_errors ? implode('<br />', $errors) : '',
-         'SESSION_EMAIL'                   => $this->request->variable('session_email', $this->user->data['session_email']),
+         'SESSION_EMAIL'                   => $this->request->variable($email_var, $this->user->data['session_email']),
          'ADVANCEDGUESTPOSTING_TOS_ACCEPT' => sprintf($this->language->lang('ADVANCEDGUESTPOSTING_TOS'), $tos_link),
       ]);
 	}
@@ -143,9 +143,11 @@ class main_listener implements EventSubscriberInterface
          return;
       }
 
+      $email_var = $this->config['allow_sfs'] ? 'email' : 'session_email';
+
       $session_data = [
          'session_username' => $this->request->variable('username', ''),
-         'session_email'    => $this->request->variable('session_email', ''),
+         'session_email'    => $this->request->variable($email_var, ''),
          'session_posts'    => (int) $this->user->data['session_posts'] + 1
       ];
 

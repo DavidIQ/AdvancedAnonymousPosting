@@ -1,4 +1,4 @@
-{% if not S_PRIVMSGS and S_DISPLAY_USERNAME %}
+{% if not S_PRIVMSGS and S_DISPLAY_USERNAME and not SFS %}
 <dl>
 	<dt><label for="session_email">{{ lang('EMAIL') ~ lang('COLON') }}</label></dt>
 	<dd><input type="text" tabindex="2" name="session_email" id="session_email" size="25" value="{{ SESSION_EMAIL }}" class="inputbox autowidth" /></dd>
