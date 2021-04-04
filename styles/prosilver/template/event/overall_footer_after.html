@@ -2,15 +2,62 @@
 <script type="text/javascript">
    $(function() {
       var $submit = $('input[name=post]');
-      $submit.prop('disabled', true);
-      $submit.addClass('disabled');
-      $('#advancedguestposting_tos_accept').change(function () {
+      var $tos_accept = $('#advancedguestposting_tos_accept');
+      if (!$tos_accept.is(':checked')) {
+         $submit.prop('disabled', true);
+         $submit.addClass('disabled');
+      }
+      $tos_accept.change(function () {
          if ($(this).is(":checked")) {
             $submit.prop('disabled', false);
             $submit.removeClass('disabled');
          } else {
             $submit.prop('disabled', true);
             $submit.addClass('disabled');
+         }
+      });
+
+      $submit.click(function (e) {
+         var $username = $('#username');
+         var $email = $('#email');
+         var $answer = $('#answer');
+         var requiredDiv = "<div class=\"error_msg\" id=\"FIELDID\">{{ lang('ADVANCEDGUESTPOSTING_FIELD_REQUIRED') }}</div>";
+         var focused = false;
+         if ($username.val() == '') {
+            $(requiredDiv.replace('FIELDID', 'username_error')).insertAfter($username);
+            $username.addClass('field_error');
+            $username.focus();
+            focused = true;
+         } else {
+            $username.removeClass('field_error');
+            $('#username_error').remove();
+         }
+         if ($email.val() == '') {
+            $(requiredDiv.replace('FIELDID', 'email_error')).insertAfter($email);
+            $email.addClass('field_error');
+            if (!focused) {
+               $email.focus();
+               focused = true;
+            }
+         } else {
+            $email.removeClass('field_error');
+            $('#email_error').remove();
+         }
+         if ($answer.length > 0) {
+            if ($answer.val() == '') {
+               $(requiredDiv.replace('FIELDID', 'answer_error')).insertAfter($answer);
+               $answer.addClass('field_error');
+               if (!focused) {
+                  $answer.focus();
+                  focused = true;
+               }
+            } else {
+               $answer.removeClass('field_error');
+               $('#answer_error').remove();
+            }
+         }
+         if (focused) {
+            e.preventDefault();
          }
       });
    });
