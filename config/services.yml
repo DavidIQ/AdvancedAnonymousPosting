@@ -16,7 +16,9 @@ services:
             - '@template'
             - '@config'
             - '@user'
+            - '@dbal.conn'
             - '%core.root_path%'
             - '%core.php_ext%'
+            - '%core.table_prefix%guest_info'
         tags:
             - { name: event.listener }
