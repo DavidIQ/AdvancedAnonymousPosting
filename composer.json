@@ -3,8 +3,8 @@
     "type": "phpbb-extension",
     "description": "Adds advanced features to guest posting",
     "homepage": "https://github.com/DavidIQ/advanced-guest-posting",
-    "version": "1.0.0-dev",
-    "time": "2019-01-15",
+    "version": "2.0.0",
+    "time": "2021-04-04",
     "license": "GPL-2.0-only",
     "authors": [
         {
@@ -21,7 +21,7 @@
     "extra": {
         "display-name": "Advanced Guest Posting",
         "soft-require": {
-            "phpbb/phpbb": ">=3.2.0,<3.3.0@dev"
+            "phpbb/phpbb": ">=3.2.0,<=3.3@dev"
         }
     }
 }
