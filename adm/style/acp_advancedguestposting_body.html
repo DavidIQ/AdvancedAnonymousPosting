@@ -15,11 +15,16 @@
 		<legend>{{ lang('SETTINGS') }}</legend>
 		<dl>
 			<dt><label for="davidiq_advancedguestposting_reg_posts">{{ lang('ACP_ADVANCEDGUESTPOSTING_REG_POSTS') ~ lang('COLON') }}</label><br /><span>{{ lang('ACP_ADVANCEDGUESTPOSTING_REG_POSTS_EXPLAIN') }}</span></dt>
-			<dd><input type="number" min="0" id="davidiq_advancedguestposting_reg_posts" name="davidiq_advancedguestposting_reg_posts" value="{{ DAVIDIQ_ADVANCEDGUESTPOSTING_REG_POSTS }}" /></dd>
+			<dd><input type="number" min="0" id="davidiq_advancedguestposting_reg_posts" name="davidiq_advancedguestposting_reg_posts" value="{{ DAVIDIQ_ADVANCEDGUESTPOSTING_REG_POSTS }}"></dd>
 		</dl>
 		<dl>
 			<dt><label for="davidiq_advancedguestposting_tos_link">{{ lang('ACP_ADVANCEDGUESTPOSTING_TOS_LINK') ~ lang('COLON') }}</label><br /><span>{{ lang('ACP_ADVANCEDGUESTPOSTING_TOS_LINK_EXPLAIN') }}</span></dt>
-			<dd><input type="text" size="60" id="davidiq_advancedguestposting_tos_link" name="davidiq_advancedguestposting_tos_link" value="{{ DAVIDIQ_ADVANCEDGUESTPOSTING_TOS_LINK }}" /></dd>
+			<dd><input type="text" size="60" id="davidiq_advancedguestposting_tos_link" name="davidiq_advancedguestposting_tos_link" value="{{ DAVIDIQ_ADVANCEDGUESTPOSTING_TOS_LINK }}"></dd>
+		</dl>
+		<dl>
+			<dt><label for="davidiq_advancedguestposting_store_guest_info">{{ lang('ACP_ADVANCEDGUESTPOSTING_STORE_GUEST_INFO') ~ lang('COLON') }}</label><br /><span>{{ lang('ACP_ADVANCEDGUESTPOSTING_STORE_GUEST_INFO_EXPLAIN') }}</span></dt>
+			<dd><label><input type="radio" class="radio" name="davidiq_advancedguestposting_store_guest_info" value="1" {% if DAVIDIQ_ADVANCEDGUESTPOSTING_STORE_GUEST_INFO %}checked="checked"{% endif %}> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" id="davidiq_advancedguestposting_store_guest_info" name="davidiq_advancedguestposting_store_guest_info" value="0" {% if not DAVIDIQ_ADVANCEDGUESTPOSTING_STORE_GUEST_INFO %}checked="checked"{% endif %}> {{ lang('NO') }}</label></dd>
 		</dl>
 	</fieldset>
 
